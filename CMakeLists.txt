@@ -10,9 +10,9 @@ add_definitions(-DGAZR_VERSION=${VERSION})
 
 find_package(dlib REQUIRED)
 
-option(DEBUG_OUTPUT "Enable debug visualizations" OFF)
-option(WITH_TOOLS "Compile sample tools" ON)
-option(WITH_ROS "Build ROS nodes" OFF)
+option(DEBUG_OUTPUT "Enable debug visualizations" ON)
+option(WITH_TOOLS "Compile sample tools" OFF)
+option(WITH_ROS "Build ROS nodes" ON)
 
 if(WITH_ROS)
 

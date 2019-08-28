@@ -91,7 +91,7 @@ ROS support
 ### Installation
 
 The [ROS](http://www.ros.org/) wrapper provides a convenient node that exposes
-each detected face as a TF frame.
+each detected face in a PoseArray message.
 
 Before building gazr with the ROS wrapper, make sure that you have installed the
  following ROS- < distro > package dependencies, where
@@ -120,8 +120,7 @@ stream with:
 $ roslaunch gazr gazr.launch
 ```
 
-The estimated TF frames of the heads will then be broadcasted as soon as
-detected.
+The estimated head poses will be published as soon as detected.
 
 The number of detected faces is published on `/gazr/detected_faces/count` and if
 `gazr` has been compiled with the flag `DEBUG_OUTPUT=TRUE`, then the detected
