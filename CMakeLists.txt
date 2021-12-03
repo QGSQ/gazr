@@ -8,6 +8,7 @@ set(VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPAC
 
 add_definitions(-std=c++11 -DGAZR_VERSION=${VERSION})
 
+add_definitions(-fPIC)
 add_subdirectory(dlib)
 
 include_directories(${dlib_INCLUDE_DIRS})
