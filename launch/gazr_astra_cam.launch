@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find astra_camera)/launch/astra.launch"/>
+
+  <node pkg="gazr" type="estimate" name="gazr" required="true" output="screen">
+    <param name="face_model" value="$(find gazr)/share/shape_predictor_68_face_landmarks.dat" />
+    <remap from="/rgb" to="/camera/color/image_raw"/>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_ref_frame" args="0 -0.20 -0.13 0 0 0 ref_frame base_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_link" args="0 0 0 0 -1.5708 1.5708 camera_link ref_frame 100" />
+
+</launch>
