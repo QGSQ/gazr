@@ -78,7 +78,7 @@ void HeadPoseEstimator::detectFaces(const sensor_msgs::ImageConstPtr& rgb_msg,
                 trans(2,0), trans(2,1), trans(2,2));
         mrot.getRotation(qrot);
 
-#if(false) // TAMS modification: do not pollute TF. Maybe optional at some point -- v4hn@20190820
+#if(true) // TAMS modification: do not pollute TF. Maybe optional at some point -- v4hn@20190820
         tf::Transform face_pose;
         face_pose.setOrigin( tf::Vector3( trans(0,3),
                                           trans(1,3),
@@ -86,7 +86,7 @@ void HeadPoseEstimator::detectFaces(const sensor_msgs::ImageConstPtr& rgb_msg,
         face_pose.setRotation(qrot);
         tf::StampedTransform transform(face_pose, 
                 rgb_msg->header.stamp,  // publish the transform with the same timestamp as the frame originally used
-                cameramodel.tfFrame(),
+                "camera_link",
                 facePrefix + "_" + to_string(face_idx));
         br.sendTransform(transform);
 #endif
