@@ -7,7 +7,10 @@
     <remap from="/rgb" to="/camera/color/image_raw"/>
   </node>
 
-  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_ref_frame" args="0 -0.20 -0.13 0 0 0 ref_frame base_link 100" />
-  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_link" args="0 0 0 0 -1.5708 1.5708 camera_link ref_frame 100" />
+  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_ref_frame_1" args="-0.200 0 -0.125 0 0 0 ref_frame_1 base_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_link" args="0 0 0 0 -1.5708 1.5708 camera_link ref_frame_1 100" />
+  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_ref_frame_2" args="0 0 0 1.5708 0 -1.5708 ref_frame_2 camera_link 100" />
+
+  <node name="rviz" pkg="rviz" type="rviz"/>
 
 </launch>
